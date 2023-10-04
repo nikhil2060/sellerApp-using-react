@@ -89,3 +89,21 @@ ul {
   align-items: center;
   justify-content: center;
 }
+
+.link {
+  text-decoration: none;
+  border: 1px solid #fff;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px 6px 8px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.active {
+  background-color: #189cf4;
+  color: #fff;
+}

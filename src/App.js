@@ -4,6 +4,13 @@ import CarCard from "./carCard";
 import { useState } from "react";
 import Search from "./carSearch";
 import { ArrowFatLeft, ArrowFatRight } from "@phosphor-icons/react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useParams,
+} from "react-router-dom";
 
 export default function App() {
   const [searchItem, setSearchItem] = useState("");
@@ -14,31 +21,42 @@ export default function App() {
 
   if (searchItem !== "") {
     return (
-      <div className="main-container">
-        <div className="search-container">
-          <Search search={handleSeachRender} />
+      <Router>
+        <div className="App">
+          <div className="main-container">
+            <div className="search-container">
+              <Search search={handleSeachRender} />
+            </div>
+            <div className="list-container">
+              <ul className="list">
+                <CarCard car={searchItem} />
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="list-container">
-          <ul className="list">
-            <CarCard car={searchItem} />
-          </ul>
-        </div>
-      </div>
+      </Router>
     );
   }
 
   return (
-    <div className="main-container">
-      <div className="search-container">
-        <Search search={handleSeachRender} />
+    <Router>
+      <div className="App">
+        <div className="main-container">
+          <div className="search-container">
+            <Search search={handleSeachRender} />
+          </div>
+          <PaginatedList itemsPerPage={6} />
+        </div>
       </div>
-      <PaginatedList itemsPerPage={6} />
-    </div>
+    </Router>
   );
 }
 
 function PaginatedList({ itemsPerPage }) {
   const [currentPage, setCurrentPage] = useState(1);
+
+  const { page } = useParams();
+  const currentPageNumber = parseInt(page || "1", 10);
 
   // Calculate the start and end index for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -46,7 +64,7 @@ function PaginatedList({ itemsPerPage }) {
 
   // Slice the data to display only the items for the current page
   const currentItems = carData.cars.slice(startIndex, endIndex);
-  const totalPages = carData.cars.length / itemsPerPage;
+  const totalPages = Math.ceil(carData.cars.length / itemsPerPage);
 
   // Event handler for navigating to the previous page
   const goToPreviousPage = () => {
@@ -81,41 +99,29 @@ function PaginatedList({ itemsPerPage }) {
             disabled={currentPage === 1}
             className="btn"
           >
-            <ArrowFatLeft size={20} color="#555" />
+            <Link to={`/page/${currentPage - 1}`}>
+              <ArrowFatLeft size={20} color="#555" />
+            </Link>
           </button>
 
-          <button onClick={() => setCurrentPage(1)} className="btn">
-            1
-          </button>
-
-          <button onClick={() => setCurrentPage(2)} className="btn">
-            2
-          </button>
-
-          <button onClick={() => setCurrentPage(3)} className="btn">
-            3
-          </button>
-
-          <button onClick={() => setCurrentPage(4)} className="btn">
-            4
-          </button>
-
-          <button className="btn">...</button>
-
-          <button onClick={() => setCurrentPage(9)} className="btn">
-            9
-          </button>
-
-          <button onClick={() => setCurrentPage(10)} className="btn">
-            10
-          </button>
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <Link
+              to={`/page/${index + 1}`}
+              key={index}
+              className={`link ${currentPage === index + 1 ? "active" : ""}`}
+            >
+              {index + 1}
+            </Link>
+          ))}
 
           <button
             onClick={goToNextPage}
             disabled={endIndex >= carData.cars.length}
             className="btn"
           >
-            <ArrowFatRight size={20} color="#555" />
+            <Link to={`/page/${currentPage + 1}`}>
+              <ArrowFatRight size={20} color="#555" />
+            </Link>
           </button>
         </div>
       </div>
