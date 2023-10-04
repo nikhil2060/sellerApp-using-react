@@ -1,0 +1,113 @@
+/* CarCard.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.car-card {
+  /* border: 1px solid #e0e0e0; */
+  padding: 16px;
+  /* margin: 16px; */
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: rgb(238, 244, 253);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.car-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.car-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #1c5054;
+}
+
+.car-details {
+  text-align: left;
+  padding: 0 15px 0 15px;
+}
+
+.car-att {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 19px;
+}
+
+.car-people {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: #757575;
+}
+
+.price-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1c5054;
+  border-top: 1px solid #757575;
+  margin-top: 20px;
+}
+
+.rent {
+  font-size: 25px;
+}
+
+.rent span {
+  font-size: 17px;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-like {
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 12px;
+  font-family: Arial;
+  border: none;
+  background-color: #eefeff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-rent {
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 12px;
+  font-family: Arial;
+  font-weight: 600;
+  border: none;
+  color: #fff;
+  background-color: #189cf4;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container {
+  background-color: rgb(255, 255, 247);
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  /* gap: 20px; */
 }
 
-.App-link {
-  color: #61dafb;
+.search-container {
+  display: flex;
+  justify-content: start;
+  padding: 8px;
+  width: 80%;
+  height: 50px;
+  margin: 10px;
+  background-color: rgb(238, 244, 253);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-container {
+  width: 80%;
+}
+
+ul {
+  padding: 0;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.list li {
+  list-style: none;
+}
+
+/********************************************/
+
+.search-input {
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.search-inside-box {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+input {
+  color: #1c5054;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  border: none;
+  border-radius: 10rem;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: start;
+  cursor: value;
+}
+
+button {
+  border-radius: 10px;
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 5px;
 }
