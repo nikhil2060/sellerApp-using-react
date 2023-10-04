@@ -106,4 +106,5 @@ ul {
 .active {
   background-color: #189cf4;
   color: #fff;
+  font-weight: 700;
 }

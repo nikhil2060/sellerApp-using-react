@@ -109,6 +109,7 @@ function PaginatedList({ itemsPerPage }) {
               to={`/page/${index + 1}`}
               key={index}
               className={`link ${currentPage === index + 1 ? "active" : ""}`}
+              onClick={() => setCurrentPage(index + 1)}
             >
               {index + 1}
             </Link>
