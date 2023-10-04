@@ -21,6 +21,7 @@ body {
   border-radius: 10px;
   background-color: rgb(238, 244, 253);
   display: flex;
+  border: 1px solid #fff;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
@@ -29,15 +30,19 @@ body {
 .car-image {
   width: 100%;
   border-radius: 10px;
+  height: 250px; /* Set the desired height */
+  object-fit: cover; /* Crop the image to fit without distortion */
 }
 
 .car-title {
+  width: 100%;
   font-size: 30px;
   font-weight: 500;
   color: #1c5054;
 }
 
 .car-details {
+  width: 100%;
   text-align: left;
   padding: 0 15px 0 15px;
 }

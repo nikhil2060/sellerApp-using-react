@@ -8,7 +8,6 @@ import {
 } from "@phosphor-icons/react";
 
 export default function CarCard({ car }) {
-  const image = car.photo;
   return (
     <div className="car-card">
       <img src={car.photo} alt="camry" className="car-image" />
@@ -25,7 +24,7 @@ export default function CarCard({ car }) {
           />
           <CarInfo
             icon={<Gauge size={29} color="#189cf4" />}
-            value={`${car.mileage} Km / 1-litre`}
+            value={`${car.mileage} KM/L`}
           />
           <CarInfo
             icon={<SteeringWheel size={29} color="#189cf4" />}
